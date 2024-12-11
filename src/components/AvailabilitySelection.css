@@ -1,0 +1,111 @@
+.availability-container {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .page-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    color: #4b2e83;
+    margin-bottom: 0.5rem;
+  }
+  
+  .flow-indicator {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .event-details {
+    background: var(--gray-100);
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+  }
+  
+  .event-details h2 {
+    margin: 0 0 1rem 0;
+    color: #4b2e83;
+  }
+  
+  .creator-input {
+    margin-bottom: 2rem;
+  }
+  
+  .creator-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .creator-input input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .dates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .date-column h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  .time-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .time-slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .time-slot:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4b2e83;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .availability-container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+    
+    .dates-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
