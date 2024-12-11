@@ -160,7 +160,7 @@ function CreateEvent() {
         </div>
 
         <button type="submit" className="submit-button">
-          Create Campus Event
+          Create Event
         </button>
       </form>
     </div>
