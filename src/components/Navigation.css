@@ -2,8 +2,11 @@
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0;
   }
+  
   
   .nav-button {
     padding: 0.5rem 1rem;

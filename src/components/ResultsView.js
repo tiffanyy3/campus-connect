@@ -70,6 +70,7 @@ function ResultsView() {
         <h1>View Group Availability</h1>
         <p className="flow-indicator">Confirmation: Group Results</p>
       </div>
+
       <div className="event-details">
         <h2>{event.eventName}</h2>
         <p>Location: {event.location}</p>
@@ -93,18 +94,13 @@ function ResultsView() {
                       count > 0 ? 'some-available' : ''
                     }`}
                   >
-                    <div className="time-slot-content">
-                      <span className="time">{time}</span>
-                      <span className="count">{count}/{totalParticipants} available</span>
-                      <div className="participants">
-                        {availableParticipants.map((participant, index) => (
-                          <React.Fragment key={participant}>
-                            <span className="participant-name">{participant}</span>
-                            {index < availableParticipants.length - 1 && ", "}
-                          </React.Fragment>
-                        ))}
-                      </div>
-                    </div>
+                    <span className="time">{time}</span>
+                    <span className="count">{count}/{totalParticipants} available</span>
+                    {count > 0 && (
+                      <span className="participants">
+                        {availableParticipants.join(', ')}
+                      </span>
+                    )}
                   </div>
                 );
               })}

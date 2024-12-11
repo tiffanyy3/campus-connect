@@ -18,24 +18,22 @@ body {
 
 
 .main-content {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 60px);
 }
 
 .app-header {
   background-color: #4b2e83;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   margin-bottom: 2rem;
 }
 
 .app-header h1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   color: white;
-  margin: 0;
   font-size: 2rem;
   font-weight: normal;
 }
