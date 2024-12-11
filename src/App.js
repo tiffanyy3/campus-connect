@@ -5,6 +5,7 @@ import AvailabilitySelection from './components/AvailabilitySelection';
 import ShareLink from './components/ShareLink';
 import ParticipantView from './components/ParticipantView';
 import ResultsView from './components/ResultsView';
+import Navigation from './components/Navigation';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <h1>Campus Connect</h1>
         </header>
         <main className="main-content">
+          <Navigation />
           <Routes>
             <Route path="/" element={<CreateEvent />} />
             <Route path="/availability/:id" element={<AvailabilitySelection />} />

@@ -7,7 +7,7 @@ import './ResultsView.css';
 function ResultsView() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
-  const timeSlots = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+  const timeSlots = ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -19,6 +19,16 @@ function ResultsView() {
     };
     fetchEvent();
   }, [id]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
 
   const getAvailabilityCount = (date, time) => {
     let count = 0;
@@ -56,6 +66,10 @@ function ResultsView() {
 
   return (
     <div className="results-container">
+      <div className="page-header">
+        <h1>View Group Availability</h1>
+        <p className="flow-indicator">Confirmation: Group Results</p>
+      </div>
       <div className="event-details">
         <h2>{event.eventName}</h2>
         <p>Location: {event.location}</p>
@@ -63,14 +77,10 @@ function ResultsView() {
         <p>Total Participants: {totalParticipants}</p>
       </div>
 
-      <div className="availability-grid">
+      <div className="dates-grid">
         {event.dates.sort().map(date => (
           <div key={date} className="date-column">
-            <h3>{new Date(date).toLocaleDateString('en-US', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric'
-            })}</h3>
+            <h3>{formatDate(date)}</h3>
             <div className="time-slots">
               {timeSlots.map(time => {
                 const count = getAvailabilityCount(date, time);
@@ -83,12 +93,17 @@ function ResultsView() {
                       count > 0 ? 'some-available' : ''
                     }`}
                   >
-                    <div className="time">{time}</div>
-                    <div className="count">{count}/{totalParticipants} available</div>
-                    <div className="participants">
-                      {availableParticipants.map(participant => (
-                        <span key={participant}>{participant}</span>
-                      ))}
+                    <div className="time-slot-content">
+                      <span className="time">{time}</span>
+                      <span className="count">{count}/{totalParticipants} available</span>
+                      <div className="participants">
+                        {availableParticipants.map((participant, index) => (
+                          <React.Fragment key={participant}>
+                            <span className="participant-name">{participant}</span>
+                            {index < availableParticipants.length - 1 && ", "}
+                          </React.Fragment>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );

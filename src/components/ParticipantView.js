@@ -26,12 +26,17 @@ function ParticipantView() {
   }, [id]);
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    const date = new Date(dateString + 'T00:00:00');
+    
+    const localDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+    
+    return localDate.toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',
       day: 'numeric'
     });
   };
+  
 
   const handleTimeSlotChange = (date, time) => {
     setAvailability(prev => ({

@@ -16,18 +16,32 @@ body {
   min-height: 100vh;
 }
 
+
+.main-content {
+  padding: 2rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+}
+
 .app-header {
-  background-color: var(--uw-purple);
+  background-color: #4b2e83;
   padding: 1rem 2rem;
+  margin-bottom: 2rem;
 }
 
 .app-header h1 {
-  color: var(--white);
+  color: white;
   margin: 0;
   font-size: 2rem;
   font-weight: normal;
 }
 
-.main-content {
-  padding: 2rem;
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
 }

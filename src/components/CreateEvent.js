@@ -63,17 +63,18 @@ function CreateEvent() {
   const handleDateClick = (day) => {
     if (!day) return;
     
-    const dateString = new Date(currentYear, currentMonth, day).toISOString().split('T')[0];
-    const date = new Date(currentYear, currentMonth, day);
+    const selectedDate = new Date(currentYear, currentMonth, day);
+    selectedDate.setHours(0, 0, 0, 0);
     
-    if (date < today) return;
-
+    const dateString = selectedDate.toISOString().split('T')[0];
+    
     if (selectedDates.includes(dateString)) {
       setSelectedDates(selectedDates.filter(d => d !== dateString));
     } else {
       setSelectedDates([...selectedDates, dateString]);
     }
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
