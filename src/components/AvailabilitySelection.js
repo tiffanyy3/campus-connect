@@ -24,6 +24,8 @@ function AvailabilitySelection() {
   }, [id]);
 
   const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
     return new Date(dateString).toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',

@@ -24,10 +24,8 @@ function ResultsView() {
     let count = 0;
     const timeSlot = `${date}-${time}`;
     
-    // Check creator's availability
     if (event.creatorAvailability[timeSlot]) count++;
     
-    // Check participants' availability
     event.participants?.forEach(participant => {
       if (participant.availability[timeSlot]) count++;
     });
@@ -85,10 +83,12 @@ function ResultsView() {
                       count > 0 ? 'some-available' : ''
                     }`}
                   >
-                    <span className="time">{time}</span>
-                    <span className="count">{count}/{totalParticipants} available</span>
+                    <div className="time">{time}</div>
+                    <div className="count">{count}/{totalParticipants} available</div>
                     <div className="participants">
-                      {availableParticipants.join(', ')}
+                      {availableParticipants.map(participant => (
+                        <span key={participant}>{participant}</span>
+                      ))}
                     </div>
                   </div>
                 );
