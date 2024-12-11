@@ -24,18 +24,14 @@ function AvailabilitySelection() {
   }, [id]);
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString + 'T00:00:00');
-    
-    const localDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
-    
-    return localDate.toLocaleDateString('en-US', {
+    const date = new Date(dateString);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    return date.toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',
       day: 'numeric'
     });
   };
-  
-
 
   const handleTimeSlotChange = (date, time) => {
     setAvailability(prev => ({

@@ -7,7 +7,7 @@ import './ResultsView.css';
 function ResultsView() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
-  const timeSlots = ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+  const timeSlots = ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'];
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -98,7 +98,7 @@ function ResultsView() {
                     <span className="count">{count}/{totalParticipants} available</span>
                     {count > 0 && (
                       <span className="participants">
-                        {availableParticipants.join(', ')}
+                        {availableParticipants.join(' ')}
                       </span>
                     )}
                   </div>
